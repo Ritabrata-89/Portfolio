@@ -1,128 +1,89 @@
-:root {
-    --primary-color: #667eea;
-    --text-color: #e0e0e0;
-    --background-color: #000;
-    --white: #ffffff;
-    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    --font-family: 'Inter', sans-serif;
-    --transition-fast: 0.3s ease;
-    --transition-slow: 0.6s ease;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #ff99bb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+h1 {
+  font-size: 3em;
+  color: #d6336c;
+  margin: 0.2em 0;
+  text-shadow: 1px 1px 4px #fff;
+}
+p {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0.2em 0 1em;
+  max-width: 400px;
+  font-style: italic;
+  text-shadow: 1px 1px 3px #fce4ec;
+}
+.quote {
+  font-size: 1.1em;
+  color: #b33a6f;
+  font-weight: 600;
+  margin-bottom: 1.5em;
+  max-width: 500px;
+  line-height: 1.4;
+  font-family: 'Georgia', serif;
+  text-shadow: 1px 1px 3px #f8bbd0;
+}
+.kiss-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  overflow: visible;
+  pointer-events: none;
+}
+.kiss {
+  font-size: 2.5em;
+  color: #ff4d88;
+  animation: floatUp 4s ease forwards;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  50% {
+    transform: translateY(-50px) scale(1.3);
+    opacity: 0.7;
   }
-  
-  body, html {
-    height: 100%;
-    overflow-x: hidden;
-    background-color:transparent;
-    color: var(--text-color);
-    font-family: var(--font-family);
-    scroll-behavior: smooth;
-    position: relative;
+  100% {
+    transform: translateY(-120px) scale(1);
+    opacity: 0;
   }
-    /* Matrix canvas background */
-    #matrix-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -15;
-        background: transparent;
-        pointer-events: none;
-      }
-  
-  /* Content on top of background */
-  .content {
-    position: relative;
-    z-index: 10;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem 1rem 4rem;
-    background: rgba(30, 30, 30, 0.85); /* Slightly opaque dark background */
-    border-radius: 10px;
-  }
-  
-  /* Header */
-  header {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--white);
-  }
-  
-  /* Navigation */
-  nav {
-    display: flex;
-    justify-content: center;
-    background: rgba(30, 30, 30, 0.85);
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    border-radius: 0 0 10px 10px;
-  }
-  
-  nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    transition: color var(--transition-fast);
-  }
-  
-  nav a:hover {
-    color: var(--primary-color);
-  }
-  
-  /* Sections */
-  section {
-    padding: 3rem 1rem;
-    background: rgba(30, 30, 30, 0.6);
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    display: inline-block;
-  }
-  
-  /* Grids */
-  .skills, .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .skill, .project {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .skill:hover, .project:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 255, 0, 0.6);
-    background: rgba(0, 255, 0, 0.1);
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 2rem;
-    background: rgba(30, 30, 30, 0.7);
-    font-size: 0.9rem;
-    margin-top: 3rem;
-    border-radius: 10px;
-    color: var(--primary-color);
-  }
-  
+}
+.button {
+  background-color: #ff66a3;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  margin-top: 20px;
+  font-size: 1.1em;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(255, 102, 163, 0.6);
+  user-select: none;
+}
+.button:hover {
+  background-color: #e05591;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(224, 85, 145, 0.9);
+}
